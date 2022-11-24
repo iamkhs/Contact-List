@@ -3,8 +3,6 @@ import java.util.HashMap;
 public class MobilePhone {
 
     private final HashMap<String, String> myContacts;
-
-    int totalContacts = 0;
     public MobilePhone(){
         myContacts = new HashMap<>();
     }
@@ -13,7 +11,6 @@ public class MobilePhone {
         if (!findContact(name) && !this.myContacts.containsValue(number)){
             this.myContacts.put(name,number);
             System.out.println(name +" added successfully");
-            totalContacts++;
         }
         else System.out.println(name+ " already available on your contact list");
     }
@@ -46,7 +43,7 @@ public class MobilePhone {
     public void printContactList(){
         int i = 1;
         if (!myContacts.isEmpty()){
-            System.out.println("You have "+ totalContacts +" contacts on your contact list.");
+            System.out.println("You have "+ myContacts.size() +" contacts on your contact list.");
             for (String key : myContacts.keySet()){
                 System.out.println(i+". "+key + " -> " +myContacts.get(key));
                 i++;
